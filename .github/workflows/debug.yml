@@ -1,0 +1,18 @@
+name: Encontrar el problema del Python 3.1
+
+on: [push]
+
+jobs:
+  find-problem:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Descargar código
+      uses: actions/checkout@v4
+      
+    - name: Buscar dónde está Python 3.1
+      run: |
+        echo "=== BUSCANDO ARCHIVOS CON '3.1' ==="
+        find . -type f -name "*.yml" -o -name "*.yaml" -o -name "*.txt" -o -name "Dockerfile*" -o -name "*.py" | xargs grep -l "3\.1" 2>/dev/null || echo "NO ENCONTRÉ 3.1"
+        
+        echo "=== BUSCANDO 'python-version' ==="
+        grep -r "python-version" . --include="*.yml" --include="*.yaml" 2>/dev/null || echo "No encontré python-version"
