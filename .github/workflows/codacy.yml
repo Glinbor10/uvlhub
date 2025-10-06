@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.11", "3.12"]  # ✅ MOD 2: Multi-versión Python (3.10 not valid)
+        python-version: ["3.11", "3.12"]  # ✅ MOD 2: Multi-versión Python (3.10 not valid PREGUNTAR A BELÉN)
     
     services:
       mysql:
