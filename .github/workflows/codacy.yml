@@ -50,10 +50,10 @@ jobs:
         pip list --outdated || echo "No se pudo verificar dependencias obsoletas"
 
     # ✅ MODIFICACIÓN 3: Análisis de seguridad
-    #- name: Security audit with pip-audit
-    #  run: |
-    #   pip install pip-audit
-    #  pip-audit
+    - name: Security audit with pip-audit
+      run: |
+       pip install pip-audit
+       pip-audit || true
 
     - name: Run tests and generate coverage
       run: |
